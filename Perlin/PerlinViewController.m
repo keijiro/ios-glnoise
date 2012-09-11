@@ -11,9 +11,9 @@
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
 static const int kSectionsU = 64;
-static const int kSectionsV = 128;
-static const float kLength = 2.0f;
-static const float kRadius = 0.3f;
+static const int kSectionsV = 48;
+static const float kLengthU = 2.0f;
+static const float kLengthV = 2.0f;
 
 // Uniform index.
 enum
@@ -170,9 +170,9 @@ static GLfloat vertexData[kSectionsU * kSectionsV * 3 * 3];
     glUniform4f(uniforms[UNIFORM_COLOR], 0.187f, 0.187f, 0.238f, 0.4f);
     glUniform3f(uniforms[UNIFORM_FREQ], 1, 1, 1);
     glUniform3f(uniforms[UNIFORM_AMP], 1.0f, 1.0f, 1.0f);
-    glUniform3f(uniforms[UNIFORM_OFFS_U], 0.07f * _time, 0, 0.0f + 0.1f * _time);
-    glUniform3f(uniforms[UNIFORM_OFFS_V], 0.07f * _time, 0, 10.0f + 0.1f * _time);
-    glUniform3f(uniforms[UNIFORM_OFFS_W], 0.07f * _time, 0, 20.0f + 0.1f * _time);
+    glUniform3f(uniforms[UNIFORM_OFFS_U], 0.0f * _time, 0.0f + 0.15f * _time, 0);
+    glUniform3f(uniforms[UNIFORM_OFFS_V], 0.0f * _time, 10.0f + 0.15f * _time, 0);
+    glUniform3f(uniforms[UNIFORM_OFFS_W], 0.0f * _time, 20.0f + 0.15f * _time, 0);
 
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, 0, _modelViewProjectionMatrix.m);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -341,22 +341,22 @@ static GLfloat vertexData[kSectionsU * kSectionsV * 3 * 3];
 
 - (void)initVertices
 {
+    int index = 0;
     for (int v = 0; v < kSectionsV; v++) {
-        for (int u = 0; u < kSectionsU; u++) {
-            int index = (v * kSectionsU + u) * 3 * 3;
-            float phi = (3.141592f * 2 / kSectionsU) * u;
-            // Normal vector
-            vertexData[index + 3] = 0;
-            vertexData[index + 4] = sin(phi);
-            vertexData[index + 5] = cos(phi);
+        for (int ui = 0; ui < kSectionsU; ui++) {
+            int u = (v & 1) ? kSectionsU - 1 - ui : ui;
             // Vertex position
-            vertexData[index + 0] = (kLength / (kSectionsV - 1)) * v - 0.5f * kLength;
-            vertexData[index + 1] = vertexData[index + 4] * kRadius;
-            vertexData[index + 2] = vertexData[index + 5] * kRadius;
+            vertexData[index++] = (kLengthU / (kSectionsU - 1)) * u - 0.5f * kLengthU;
+            vertexData[index++] = 0;
+            vertexData[index++] = (kLengthV / (kSectionsV - 1)) * v - 0.5f * kLengthV;
+            // Normal vector
+            vertexData[index++] = 0;
+            vertexData[index++] = 1;
+            vertexData[index++] = 0;
             // Tangent vector
-            vertexData[index + 6] = 1;
-            vertexData[index + 7] = 0;
-            vertexData[index + 8] = 0;
+            vertexData[index++] = 1;
+            vertexData[index++] = 0;
+            vertexData[index++] = 0;
         }
     }
 }
