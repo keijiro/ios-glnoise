@@ -1,7 +1,7 @@
-#import "BaseDrawer.h"
+#import "ShaderProgram.h"
 #import <GLKit/GLKit.h>
 
-@interface BaseDrawer ()
+@interface ShaderProgram ()
 {
     GLuint _program;
     GLuint _vertShader;
@@ -12,7 +12,7 @@
 
 @end
 
-@implementation BaseDrawer
+@implementation ShaderProgram
 
 - (GLuint)program
 {

@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface BaseDrawer : NSObject
+@interface ShaderProgram : NSObject
 
 - (void)tearDown;
 - (BOOL)loadShadersWithFilePath:(NSString*)filePath;

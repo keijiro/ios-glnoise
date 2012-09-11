@@ -1,5 +1,6 @@
 #import "MeshDrawer.h"
 #import <GLKit/GLKit.h>
+#import "ShaderProgram.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -27,6 +28,8 @@ enum {
     GLint _uniforms[NUM_UNIFORMS];
     GLfloat _vertexData[kSectionsU * kSectionsV * 3 * 3];
 }
+
+@property (strong, nonatomic) ShaderProgram *shader;
 
 - (void)initVertices;
 
@@ -56,11 +59,12 @@ enum {
     glVertexAttribPointer(GLKVertexAttribColor, 3, GL_FLOAT, GL_FALSE, 36, BUFFER_OFFSET(24));
 
     glBindVertexArrayOES(0);
-
-    [self loadShadersWithFilePath:@"Shader"];
+    
+    self.shader = [[ShaderProgram alloc] init];
+    [self.shader loadShadersWithFilePath:@"Shader"];
     
     // Get uniform locations.
-    GLuint prog = self.program;
+    GLuint prog = self.shader.program;
     _uniforms[UNIFORM_COLOR] = glGetUniformLocation(prog, "color");
     _uniforms[UNIFORM_FREQ] = glGetUniformLocation(prog, "freq");
     _uniforms[UNIFORM_AMP] = glGetUniformLocation(prog, "amp");
@@ -69,7 +73,7 @@ enum {
     _uniforms[UNIFORM_OFFS_W] = glGetUniformLocation(prog, "offs_w");
     _uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX] = glGetUniformLocation(prog, "modelViewProjectionMatrix");
 
-    [self releaseShaders];
+    [self.shader releaseShaders];
 
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(30.0f), aspect, 0.1f, 100.0f);
     GLKMatrix4 modelviewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -3.0f);
@@ -83,7 +87,7 @@ enum {
 {
     glBindVertexArrayOES(_vertexArray);
     
-    glUseProgram(self.program);
+    glUseProgram(self.shader.program);
     glUniform4f(_uniforms[UNIFORM_COLOR], 0.187f, 0.187f, 0.238f, 0.4f);
     glUniform3f(_uniforms[UNIFORM_FREQ], 1, 1, 1);
     glUniform3f(_uniforms[UNIFORM_AMP], 1.0f, 1.0f, 1.0f);
@@ -100,7 +104,7 @@ enum {
 
 - (void)tearDown
 {
-    [super tearDown];
+    [self.shader tearDown];
     glDeleteBuffers(1, &_vertexBuffer);
     glDeleteVertexArraysOES(1, &_vertexArray);
 }
