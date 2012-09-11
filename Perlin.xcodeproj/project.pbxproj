@@ -21,6 +21,7 @@
 		0F0046DA15F22B7C00CF7B24 /* PerlinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0046D815F22B7C00CF7B24 /* PerlinViewController.xib */; };
 		0FB64B7E15FF6BC7004291FC /* ShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB64B7D15FF6BC7004291FC /* ShaderProgram.m */; };
 		0FE31B5415FF5728008B77F9 /* MeshDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE31B5315FF5728008B77F9 /* MeshDrawer.m */; };
+		0FF3D74615FFF84500470B27 /* RenderTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3D74515FFF84500470B27 /* RenderTarget.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		0FB64B7D15FF6BC7004291FC /* ShaderProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderProgram.m; sourceTree = "<group>"; };
 		0FE31B5215FF5728008B77F9 /* MeshDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshDrawer.h; sourceTree = "<group>"; };
 		0FE31B5315FF5728008B77F9 /* MeshDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeshDrawer.m; sourceTree = "<group>"; };
+		0FF3D74415FFF84500470B27 /* RenderTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderTarget.h; sourceTree = "<group>"; };
+		0FF3D74515FFF84500470B27 /* RenderTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderTarget.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				0FE31B5315FF5728008B77F9 /* MeshDrawer.m */,
 				0FB64B7C15FF6BC7004291FC /* ShaderProgram.h */,
 				0FB64B7D15FF6BC7004291FC /* ShaderProgram.m */,
+				0FF3D74415FFF84500470B27 /* RenderTarget.h */,
+				0FF3D74515FFF84500470B27 /* RenderTarget.m */,
 			);
 			path = Perlin;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				0F0046D715F22B7C00CF7B24 /* PerlinViewController.m in Sources */,
 				0FE31B5415FF5728008B77F9 /* MeshDrawer.m in Sources */,
 				0FB64B7E15FF6BC7004291FC /* ShaderProgram.m in Sources */,
+				0FF3D74615FFF84500470B27 /* RenderTarget.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
