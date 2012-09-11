@@ -19,6 +19,7 @@
 		0F0046D415F22B7C00CF7B24 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 0F0046D315F22B7C00CF7B24 /* Shader.vsh */; };
 		0F0046D715F22B7C00CF7B24 /* PerlinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0046D615F22B7C00CF7B24 /* PerlinViewController.m */; };
 		0F0046DA15F22B7C00CF7B24 /* PerlinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0046D815F22B7C00CF7B24 /* PerlinViewController.xib */; };
+		0FB64B7E15FF6BC7004291FC /* BaseDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB64B7D15FF6BC7004291FC /* BaseDrawer.m */; };
 		0FE31B5415FF5728008B77F9 /* MeshDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE31B5315FF5728008B77F9 /* MeshDrawer.m */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,8 @@
 		0F0046D515F22B7C00CF7B24 /* PerlinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerlinViewController.h; sourceTree = "<group>"; };
 		0F0046D615F22B7C00CF7B24 /* PerlinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerlinViewController.m; sourceTree = "<group>"; };
 		0F0046D915F22B7C00CF7B24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PerlinViewController.xib; sourceTree = "<group>"; };
+		0FB64B7C15FF6BC7004291FC /* BaseDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDrawer.h; sourceTree = "<group>"; };
+		0FB64B7D15FF6BC7004291FC /* BaseDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDrawer.m; sourceTree = "<group>"; };
 		0FE31B5215FF5728008B77F9 /* MeshDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshDrawer.h; sourceTree = "<group>"; };
 		0FE31B5315FF5728008B77F9 /* MeshDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeshDrawer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +105,8 @@
 				0F0046C615F22B7C00CF7B24 /* Supporting Files */,
 				0FE31B5215FF5728008B77F9 /* MeshDrawer.h */,
 				0FE31B5315FF5728008B77F9 /* MeshDrawer.m */,
+				0FB64B7C15FF6BC7004291FC /* BaseDrawer.h */,
+				0FB64B7D15FF6BC7004291FC /* BaseDrawer.m */,
 			);
 			path = Perlin;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				0F0046D015F22B7C00CF7B24 /* PerlinAppDelegate.m in Sources */,
 				0F0046D715F22B7C00CF7B24 /* PerlinViewController.m in Sources */,
 				0FE31B5415FF5728008B77F9 /* MeshDrawer.m in Sources */,
+				0FB64B7E15FF6BC7004291FC /* BaseDrawer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

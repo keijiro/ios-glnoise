@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
+#import "BaseDrawer.h"
 
-@interface MeshDrawer : NSObject
+@interface MeshDrawer : BaseDrawer
 
 - (id)initWithAspect:(float)aspect;
 - (void)tearDown;
